@@ -1,15 +1,25 @@
 count = 0
-answers = {}
+answers = []
 
 for l in open('input', 'r'):
     l = l.strip()
     print(l)
 
     if len(l) == 0:
-        count += len(answers.keys())
-        answers = {}
+        common = answers[0]
+        for p in answers[1:]:
+            common = common & p
 
-    answers.update({w: 1 for w in l})
+        count += len(common)
+        answers = []
 
-count += len(answers.keys())
+    else:
+        answers.append(set([c for c in l]))
+
+common = answers[0]
+for p in answers[1:]:
+    common = common & p
+
+count += len(common)
+
 print(count)

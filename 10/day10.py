@@ -1,5 +1,5 @@
-def read_input_sorted(file='input'):
-    return sorted([int(l.strip()) for l in open(file, 'r')])
+def read_input_sorted(file="input"):
+    return sorted([int(l.strip()) for l in open(file, "r")])
 
 
 def valid_chain(adapters: list[int]) -> bool:
@@ -26,7 +26,7 @@ def get_chains(remaining: list[int], min_a: int):
     if len(remaining_copy) == 1:
         return 1
 
-    # get all possible next chain values, assuming we have a 0 at the start
+    # get all possible next chain values
     next_adapters = [a for a in remaining_copy if a <= min_a + 3]
 
     count = 0
